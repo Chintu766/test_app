@@ -1,4 +1,4 @@
-class Chintu < ActiveRecord::Migration[7.0]
+class CreateChintu < ActiveRecord::Migration[7.0]
   def change
     create_table :chintus do |t|
       t.string :title

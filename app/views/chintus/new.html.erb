@@ -1,4 +1,12 @@
 <h1>Create a new article</h1>
+   <% if @chintu.errors.any? %>
+      <h2>The following errors prevented the article from being saved</h2>
+    <ul>
+     <% @chintu.errors.full_messages.each do |msg| %>
+       <li><%= msg %></li>
+     <% end %>
+     </ul>
+    <% end %>
 
 <%= form_with scope: :chintu, url: chintus_path, local: true do |f| %>
   <p>
