@@ -9,8 +9,13 @@
     </tr>
   </thead>
    <tbody>
-     <td>title</td>
-     <td>description</td>
-     <td>placeholder</td>
+     <% @chintus.each do |article| %>
+         <tr>
+           <td><%= article.title %></td>
+           <td><%= article.description %></td>
+           <td>Placeholder</td>
+         </tr>
+       <% end %>
      </tbody>
+
 </table>

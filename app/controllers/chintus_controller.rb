@@ -1,6 +1,6 @@
 class ChintusController <  ApplicationController
   def show
-    @chintu = Chintu.new
+    @chintu = Chintu.find(params[:id])
   end
   def index
      @chintus = Chintu.all
@@ -9,6 +9,8 @@ class ChintusController <  ApplicationController
 
   end
   def create
-    render plain:params[:chintu]
+    @chintu = Chintu.new(params.require(:chintu).permit(:title, :description))
+      @chintu.save
+      redirect_to @chintu
   end
 end
