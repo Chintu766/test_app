@@ -2,3 +2,7 @@
 
 <p><strong>Title: </strong><%= @chintu.title %></p>
 <p><strong>Description: </strong><%= @chintu.description %></p>
+
+<%= link_to 'Edit', edit_chintu_path(@chintu) %> |
+<%= link_to 'Delete', chintu_path(@chintu), method: :delete, data: { confirm: "Are you sure?" } %> |
+<%= link_to 'Return to chintus listing', chintus_path %>
