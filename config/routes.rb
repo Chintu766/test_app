@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :articles
-  resources :chintus 
+  resources :chintus
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 #get 'hello', to:'application#hello'
   # Defines the root path route ("/")
@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   root 'pages#about'
   get 'about',to: 'pages#about'
   get 'sai',to: 'chintus#chintu'
+  get 'home',to: 'pages#home'
+
 end

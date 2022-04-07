@@ -1,6 +1,6 @@
 class ChintusController <  ApplicationController
+   before_action :set_chintu, only: [:show, :edit, :update, :destroy]
   def show
-    @chintu = Chintu.find(params[:id])
   end
   def index
      @chintus = Chintu.all
@@ -9,10 +9,10 @@ class ChintusController <  ApplicationController
      @chintu=Chintu.new
   end
   def edit
-      @chintu= Chintu.find(params[:id])
+
   end
   def create
-    @chintu = Chintu.new(params.require(:chintu).permit(:title, :description))
+    @chintu = Chintu.new(chintu_params)
     if @chintu.save
        flash[:notice] = "Article was created successfully."
        redirect_to @chintu
@@ -20,18 +20,28 @@ class ChintusController <  ApplicationController
        render 'new'
     end
   end
+
   def update
-    @chintu = Chintu.find(params[:id])
-    if @chintu.update(params.require(:chintu).permit(:title, :description))
+
+    if @chintu.update(chintu_params)
       flash[:notice] = "Article was updated successfully."
         redirect_to @chintu
     else
       render 'edit'
     end
   end
+
   def destroy
-    @chintu = Chintu.find(params[:id])
     @chintu.destroy
     redirect_to chintus_path
+  end
+
+  private
+
+  def set_chintu
+    @chintu = Chintu.find(params[:id])
+  end
+  def chintu_params
+    params.require(:chintu).permit(:title, :description)
   end
 end
