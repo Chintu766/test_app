@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get 'about',to: 'pages#about'
   get 'sai',to: 'chintus#chintu'
   get 'home',to: 'pages#home'
-
+  get 'signup',to: 'customers#new'
+  resources :customers,except:[:new]
 end
