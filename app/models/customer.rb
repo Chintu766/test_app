@@ -1,4 +1,5 @@
 class Customer < ApplicationRecord
+  before_save { self.email = email.downcase }
    has_many :chintus
   validates :username, presence: true,
                  uniqueness: { case_sensitive: false },

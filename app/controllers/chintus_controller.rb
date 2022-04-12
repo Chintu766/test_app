@@ -13,7 +13,8 @@ class ChintusController <  ApplicationController
   end
   def create
     @chintu = Chintu.new(chintu_params)
-      @chintu.customer = Customer.first 
+      @chintu.customer = Customer.first
+      @chintu.user=User.first
     if @chintu.save
        flash[:notice] = "Article was created successfully."
        redirect_to @chintu
