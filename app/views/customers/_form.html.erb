@@ -1,0 +1,31 @@
+<% if @customer.errors.any? %>
+  <h2>The following errors prevented customer  from being saved</h2>
+  <ul>
+    <% @customer.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with(model: @customer, local: true) do |f| %>
+
+  <p class="text-center mt-4">
+    <%= f.label :username %><br/>
+    <%= f.text_field :username %>
+  </p>
+
+  <p class="text-center mt-4">
+    <%= f.label :email %><br/>
+    <%= f.email_field :email %>
+  </p>
+
+    <p class="text-center mt-4">
+      <%= f.label :password %><br/>
+      <%= f.password_field :password %>
+    </p>
+
+
+  <p class="text-center mt-4">
+    <%= f.submit(@customer.new_record? ? "Sign up" : "Update account") %>
+  </p>
+
+<% end %>
