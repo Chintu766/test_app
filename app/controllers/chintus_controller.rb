@@ -1,6 +1,7 @@
 class ChintusController <  ApplicationController
    before_action :set_chintu, only: [:show, :edit, :update, :destroy]
   def show
+    
   end
   def index
      @chintus = Chintu.all
@@ -13,7 +14,7 @@ class ChintusController <  ApplicationController
   end
   def create
     @chintu = Chintu.new(chintu_params)
-      @chintu.customer = Customer.first 
+      @chintu.customer = Customer.first
     if @chintu.save
        flash[:notice] = "Article was created successfully."
        redirect_to @chintu
