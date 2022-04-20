@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
+   before_action :set_customer, only: [:show, :edit, :update]
   def show
-  @customer = Customer.find(params[:id])
   @chintus = @customer.chintus
   end
   def index
@@ -10,7 +10,6 @@ class CustomersController < ApplicationController
     @customer = Customer.new
   end
   def edit
-    @customer = Customer.find(params[:id])
   end
   def create
     @customer = Customer.new(customer_params)
@@ -22,7 +21,6 @@ class CustomersController < ApplicationController
     end
   end
   def update
-    @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
       flash[:notice] = "Your account information was successfully updated"
       redirect_to @customer
@@ -30,9 +28,12 @@ class CustomersController < ApplicationController
       render 'edit'
     end
   end
-
   private
   def customer_params
     params.require(:customer).permit(:username, :email, :password)
   end
+  def set_customer
+      @customer = Customer.find(params[:id])
+  end
+
 end
