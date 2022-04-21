@@ -1,0 +1,20 @@
+<h1 class="text-center mt-4">log in </h1>
+
+<%= form_with(model: @customer, local: true) do |f| %>
+
+  <p class="text-center mt-4">
+    <%= f.label :email %><br/>
+    <%= f.email_field :email %>
+  </p>
+
+    <p class="text-center mt-4">
+      <%= f.label :password %><br/>
+      <%= f.password_field :password %>
+    </p>
+
+
+  <p class="text-center mt-4">
+    <%= f.submit "Log in" %>
+  </p>
+
+<% end %>

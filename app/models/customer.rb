@@ -1,8 +1,15 @@
 class Customer < ApplicationRecord
+<<<<<<< user-autentication
   before_save :downcase_email
   def downcase_email
     self.email = email.downcase
     self.email
+=======
+  before_save :downcase_email 
+  def downcase_email
+   self.email=email.downcase
+   self.email
+>>>>>>> local
   end
    has_many :chintus
   validates :username, presence: true,
