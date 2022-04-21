@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 <h1 class="text-center mt-4">Log in</h1>
 
 <%= form_for(:session,html:{role:"form"},url:login_path) do |f| %>
+=======
+<h1 class="text-center mt-4">log in </h1>
+
+<%= form_with(model: @customer, local: true) do |f| %>
+>>>>>>> d64b00f01f609a8f5b718812ae547a9182ba0561
 
   <p class="text-center mt-4">
     <%= f.label :email %><br/>
@@ -14,6 +20,13 @@
 
 
   <p class="text-center mt-4">
+<<<<<<< HEAD
     <%= f.submit"Log in" %>
   </p>
   <% end %>
+=======
+    <%= f.submit "Log in" %>
+  </p>
+
+<% end %>
+>>>>>>> d64b00f01f609a8f5b718812ae547a9182ba0561
