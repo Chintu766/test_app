@@ -1,5 +1,7 @@
 class ChintusController < ApplicationController
   before_action :set_chintu, only: %i[show edit update destroy]
+  before_action :require_customer, except: %i[show index]
+  before_action :require_same_customer, only: %i[edit update destroy]
 
   def show; end
 
@@ -15,7 +17,7 @@ class ChintusController < ApplicationController
 
   def create
     @chintu = Chintu.new(chintu_params)
-    @chintu.customer = Customer.first
+    @chintu.customer = current_customer
     if @chintu.save
       flash[:notice] = 'Article was created successfully.'
       redirect_to @chintu
@@ -46,5 +48,12 @@ class ChintusController < ApplicationController
 
   def chintu_params
     params.require(:chintu).permit(:title, :description)
+  end
+
+  def require_same_customer
+    if current_customer != @chintu.customer
+      flash[:alert] = 'You can only edit or delete your own article'
+      redirect_to @chintu
+    end
   end
 end

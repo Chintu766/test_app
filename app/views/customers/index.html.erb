@@ -10,14 +10,13 @@
           </div>
           <div class="card-body">
             <h5 class="card-title">
-<<<<<<< HEAD
-=======
               <%= link_to gravatar_for(customer, size: 150), customer %>
->>>>>>> d64b00f01f609a8f5b718812ae547a9182ba0561
             </h5>
             <p class="card-text"><%= pluralize(customer.chintus.count, "article") %></p>
+             <% if logged_in? && customer == current_customer %>
             <%= link_to "View profile", customer, class: "btn btn-outline-success" %>
             <%= link_to "Edit profile", edit_customer_path(customer), class: "btn btn-outline-info" %>
+            <% end %>
           </div>
           <div class="card-footer text-muted">
             <small>Joined <%= time_ago_in_words(customer.created_at) %> ago</small>
