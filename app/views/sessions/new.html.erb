@@ -1,6 +1,7 @@
-<h1 class="text-center mt-4">log in </h1>
 
-<%= form_with(model: @customer, local: true) do |f| %>
+<h1 class="text-center mt-4">Log in</h1>
+
+<%= form_for(:session,html:{role:"form"},url:login_path) do |f| %>
 
   <p class="text-center mt-4">
     <%= f.label :email %><br/>
@@ -14,7 +15,8 @@
 
 
   <p class="text-center mt-4">
-    <%= f.submit "Log in" %>
+     <%= f.submit "Log in" %>
   </p>
 
 <% end %>
+

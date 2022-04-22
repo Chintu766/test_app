@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
    before_action :set_customer, only: [:show, :edit, :update]
   def show
-  @chintus = @customer.chintus
+  @chintus = Chintus.all
   end
   def index
    @customers = Customer.all
@@ -10,6 +10,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new
   end
   def edit
+
   end
   def create
     @customer = Customer.new(customer_params)
@@ -35,5 +36,4 @@ class CustomersController < ApplicationController
   def set_customer
       @customer = Customer.find(params[:id])
   end
-
 end
