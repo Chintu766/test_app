@@ -1,9 +1,12 @@
-class ChintusController < ApplicationController
+class ChintusController < ApplicationController   
+  
   before_action :set_chintu, only: %i[show edit update destroy]
   before_action :require_customer, except: %i[show index]
   before_action :require_same_customer, only: %i[edit update destroy]
 
-  def show; end
+  def show
+    
+  end
 
   def index
     @chintus = Chintu.all
@@ -13,7 +16,8 @@ class ChintusController < ApplicationController
     @chintu = Chintu.new
   end
 
-  def edit; end
+  def edit
+  end
 
   def create
     @chintu = Chintu.new(chintu_params)

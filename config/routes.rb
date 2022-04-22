@@ -12,11 +12,7 @@ Rails.application.routes.draw do
   get 'signup',to: 'customers#new'
   resources :customers,except:[:new]
   get 'login', to: 'sessions#new'
-<<<<<<< HEAD
-post 'login', to: 'sessions#create'
-delete 'logout', to: 'sessions#destroy'
-=======
- post 'login', to: 'sessions#create'
- delete 'logout', to: 'sessions#destroy'
->>>>>>> d64b00f01f609a8f5b718812ae547a9182ba0561
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+
 end
